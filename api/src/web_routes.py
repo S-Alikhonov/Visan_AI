@@ -1,4 +1,3 @@
-from matplotlib.pyplot import title
 from src import app,bcrypt,db
 from flask import render_template,request,redirect,url_for,flash
 from src.models import Insights,User
@@ -57,6 +56,10 @@ def dash():
     return render_template('dashboard.html',graph=graph,images=images,given_date=given_date,title='Dashboard')
 
 
+@app.route('/account',methods=['POST','GET'])
+@login_required
+def account():
+    return render_template('account.html')
 @app.route('/register',methods=['POST','GET'])
 def register():
     if current_user.is_authenticated:
