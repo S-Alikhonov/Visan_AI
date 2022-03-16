@@ -19,12 +19,15 @@
       </div>
   </div>
   <div class="profile-info col-md-9">
-      <div class="panel">
-          <form>
-            <button class="btn btn-warning pull-right">Post</button>
-          </form>
-      </div>
-      <div>
+      <div class="row">
+          <div class="col-md-6"><h5>{{current_user.secret_key}}</h5></div>
+          <div class="col-md-3">
+            <div class="panel">
+                <form method="POST">
+                  <button class="btn btn-warning pull-right">Recreate</button>
+                </form>
+            </div>
+          </div>  
       </div>
   </div>
 </div>

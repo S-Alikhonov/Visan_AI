@@ -1,3 +1,4 @@
+import uuid
 from src import app,bcrypt,db
 from flask import render_template,request,redirect,url_for,flash
 from src.models import Insights,User
@@ -59,6 +60,9 @@ def dash():
 @app.route('/account',methods=['POST','GET'])
 @login_required
 def account():
+    if request.method == 'POST':
+        current_user.secret_key = str(uuid.uuid4())
+        db.session.commit()
     return render_template('account.html')
 @app.route('/register',methods=['POST','GET'])
 def register():
