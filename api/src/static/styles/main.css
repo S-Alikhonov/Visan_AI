@@ -1,0 +1,107 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* home page */
+.home {
+    background: url('../assets/home-back.png') no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    background-position:center center
+    
+}
+
+.my-button {
+    background-color: #3b44b3 !important;
+    border: #3b44b3;
+    max-width: 200px;
+}
+.my-button:hover {
+    background-color: #a8e134 !important;
+    border: #a8e134 ;
+    
+}
+.home-text {
+    font-family: 'Days One', sans-serif;
+    font-size: 2rem;
+    color: #facc26;
+}
+.home-text .pink {
+    color: #ff8579;
+}
+.home-text .ai {
+    color:#3b44b3
+}
+/* authtentication forms */
+.authenticate {
+    margin-top: 5rem;
+}
+
+.auth-form {
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+/* dashboard forms */
+
+.input-group-append {
+    cursor: pointer;
+  }
+/* 
+.datetime-picker {
+    width: auto!important
+} */
+.heatmap {
+    max-width: 30vw;
+    min-width: 300px
+}
+#chart1 {
+    max-width: 90vw;
+    min-width: 90vw;
+}
+.dash-form {
+    margin-top: 5vh;
+    max-width: 300px; 
+    /* border-radius: 30px ; */
+    min-width: 30vw;
+    padding: 40px;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+
+}
+
+.car-image {
+    border-radius:30px ;
+}
+.my-carousel {
+    padding-right: 20vw !important;
+    padding-left: 20vw !important;
+}
+
+#first-section {
+    min-height: 80vh;
+    background-color: #0991a3;
+
+ 
+}
+#second-section {
+    margin-top: 30px;
+    min-height: 80vh;
+    background-color: #3b44b3;
+
+ 
+}
+
+/* button scroll back */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    z-index: 1000;
+    background-color: #3b44b3 !important;
+    border: none;
+  }

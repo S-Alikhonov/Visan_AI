@@ -1,0 +1,19 @@
+{%macro heatmap_images(images)%}
+<div class="d-flex justify-content-center p-5">
+    <div class="row">
+        {%if images%}
+        {%for image in images%}
+        
+            <div class="col-12 col-md-6 d-flex flex-column align-items-center pb-5">
+                <p>{{image[1]}}</p>
+                <img src="{{url_for('static',filename='uploads/'+image[0])}}" class="heatmap" alt="">
+            </div>
+        {%endfor%}
+        {%else%}
+        <div class="container">
+            <p>There is no info for selected date</p>
+        </div>
+        {%endif%}
+        </div>
+</div>
+{%endmacro%}

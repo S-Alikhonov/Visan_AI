@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<div class="d-flex justify-content-center authenticate">
+    <div class="my auth-form">
+        <form method='POST' action="">
+            {{form.hidden_tag()}}
+            <div class="label mb-4 text-center title-form "><label>
+                <p>
+                    
+                </p> Login
+            </label></div>
+            <fieldset>
+                <div class="form-group d-flex flex-column mb-3">
+                    {{form.email.label(class='form-labels')}}
+                    {%if form.email.errors %}
+                        {{form.email(class='form-control is-invalid')}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.email(class='form-control')}}
+                    {%endif%}
+                </div>
+        
+                <div class="form-group d-flex flex-column mb-3">
+                    {{form.password.label(class='form-labels')}}
+                    {%if form.password.errors %}
+                        {{form.email(class='form-control is-invalid')}}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.password(class='form-control')}}
+                    {%endif%}
+                </div>
+                
+            </fieldset>
+  
+                <div class="form-group d-flex align-items-center pb-3 border-bottom">
+                    {{form.submit(class="btn btn-primary form-labels")}}
+                    <div class="form-check ms-2">
+                        {{form.remember(class='form-check-input')}}
+                        {{form.remember.label(class='form-check-label form-labels')}}
+                    </div>
+                </div>
+        </form>
+        <div class='d-flex justify-content-center'>
+            <p class='text-muted form-labels'>
+                No account,yet ?
+            </p>
+                <a class='ms-3 form-labels' href="{{url_for('register')}}">Sign up</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

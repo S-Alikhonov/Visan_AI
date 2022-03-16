@@ -1,0 +1,36 @@
+{%macro carousel(images) %}
+
+<div class="heatmap-title">
+  <h3 class="text-center">Heatmaps by hour</h3>
+</div>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    {%for image in images%}
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{loop.index0}}"  class="{%if loop.index0==0 %}active{%endif%}" aria-current="{%if loop.index0==0 %}true{%endif%}" aria-label="Slide {{loop.index}}"></button>
+    {%endfor%}
+    </div>
+    <div class="carousel-inner">
+    {%for image in images%}
+
+      <div class="carousel-item {%if loop.index==1 %}active{%endif%}">
+        <img src="{{url_for('static',filename='uploads/'+image[0])}}" class="d-block w-100 car-image" alt="...">
+        <div class="carousel-caption d-none d-sm-block">
+          <h3>{{image[1]}}</h3>
+        </div>
+        <div class="carousel-caption d-sm-none">
+            <p>{{image[1]}}</p>
+          </div>
+      </div>
+    {%endfor%}
+</div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ 
+{%endmacro%}

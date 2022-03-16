@@ -1,0 +1,117 @@
+{%extends 'base.html'%}
+{%block content%}
+{%from 'components/carousel.html' import carousel%}
+{%from 'components/images.html' import heatmap_images%}
+<!-- Back to top button -->
+<button
+type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+  <i class="fas fa-arrow-up"></i>
+</button>
+<div class="d-flex justify-content-center">
+    <div class="row">
+     <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- Form code begins -->
+      <div class="dash-form">
+        <form method="post">
+            <div class="form-group"> <!-- Date input -->
+              <label class="control-label" for="date">Choose date</label>
+              <input class="form-control datetime-picker mb-3" id="date" name="date" placeholder="MM/DD/YYYY" type="text" autocomplete="off"/>
+            </div>
+            <div class="form-group"> <!-- Submit button -->
+              <button class="btn btn-primary " name="submit" id="select-date" type="submit">Select</button>
+            </div>
+           </form>
+      </div>
+      
+       <!-- Form code ends --> 
+  
+      </div>
+    </div>    
+   </div>
+   <div class="p-5 d-flex justify-content-center">
+    <h1>{{given_date}}</h1>
+   </div>
+  {%if images%}
+<div class="cont">
+  <nav class="d-flex justify-content-center">
+    <a class="btn btn-primary me-2" href="#first-section">Visitor analytics</a>
+    <a class="btn btn-primary ms-2" href="#second-section">Hourly Heatmap</a>
+  </nav>
+</div>
+<div id="first-section">
+  <div class="d-flex-column align-items-center p-5">
+    <h3 class="text-center">Hourly visitor count</h3>
+    <div class="row graph">
+        <div class="col-12">
+            <div>
+                <div id="chart1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="second-section">
+  <div class="my-carousel p-5">
+    {{carousel(images)}}
+</div>
+</div>
+{%else%}
+<div class="container">
+  <p class="text-center">There is no info for selected date</p>
+  </div>
+{%endif%}
+
+
+
+
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd/mm/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script> 
+    var graph1 = {{graph|safe}};
+    Plotly.plot("chart1",graph1,{})
+</script>
+<script>
+  //Get the button
+let mybutton = document.getElementById("btn-back-to-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+{%endblock%}

@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<div class="home d-flex flex-column justify-content-center p-5">
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+    <p class="home-text">
+        power your <span class="pink">visitor analytics</span> and 
+        <span class="pink">retail-heatmap</span> with <span class="ai">AI</span>
+    </p>
+    </div>
+</div>
+<a href="{{url_for('dash')}}" class="btn btn-primary my-button">start</a>
+</div>
+{% endblock %}
