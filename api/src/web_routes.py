@@ -41,13 +41,15 @@ def dash():
         df = pd.DataFrame(data)
         #chart
         figure = px.bar(df,x=1,y=df.columns[0],
-                        labels={'0':'number of visitors','1':'time interval'},
-                        
+                        labels={'0':'number of visitors','1':'time interval'}, 
                        )
         figure.update_layout(title_x=0.5,
                              yaxis = dict(dtick = 1),
                              paper_bgcolor='rgba(0,0,0,0)',
                              plot_bgcolor='rgba(0,0,0,0)')
+        figure.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)',
+                  marker_line_width=1.5, opacity=0.6)
+        figure.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(8,48,107,0.3)',)
         graph = json.dumps(figure,cls=plotly.utils.PlotlyJSONEncoder)
         images = [[insight.heatmap,insight.time_interval.strftime('%H:00')] for insight in insights]
     else:

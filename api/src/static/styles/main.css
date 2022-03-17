@@ -61,6 +61,13 @@ body {
     max-width: 90vw;
     min-width: 90vw;
 }
+.graph-chart {
+    border: solid rgba(128, 128, 128, 0.349) 1px;
+    border-radius: 25px;
+
+    background-color: #ffffff;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
 .dash-form {
     margin-top: 5vh;
     max-width: 300px; 
@@ -74,25 +81,33 @@ body {
 }
 
 .car-image {
-    border-radius:30px ;
+    border-radius:25px ;
+    
 }
 .my-carousel {
     padding-right: 20vw !important;
     padding-left: 20vw !important;
+
+
 }
 
 #first-section {
     min-height: 80vh;
-    background-color: #0991a3;
+
 
  
 }
 #second-section {
     margin-top: 30px;
     min-height: 80vh;
-    background-color: #3b44b3;
 
- 
+}
+.carousel {
+    box-shadow: rgba(26, 24, 17, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px !important;
+    border-radius: 25px;
+    border: solid rgba(61, 61, 61, 0.836) 1px;
+    padding: 50px;
+
 }
 
 /* button scroll back */
@@ -212,3 +227,6 @@ body {
     margin: 6px 0 10px 0;
 }
 
+.modebar{
+    display: none !important;
+}
