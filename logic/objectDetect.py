@@ -56,7 +56,7 @@ def heatmap(background_subtractor,raw_frame,frame,accum_image):
     # add to the accumulated image
     accum_image = cv2.add(accum_image, th1)
     color_image = cv2.applyColorMap(accum_image, cv2.COLORMAP_JET)
-    result_overlay = cv2.addWeighted(frame, 0.7, color_image, 0.7, 0)
+    result_overlay = cv2.addWeighted(frame, 0.8, color_image, 0.6, 0)
         
     return background_subtractor,accum_image,result_overlay
         
@@ -68,7 +68,7 @@ def api_sender(heatmap,count):
         'heatmap':heatmap_file_name,
         'count': len(count)
     }
-    req = requests.post(BASE_URL+'api/c12905c1-1aa3-46c4-99fc-517408d381f8',data=data,files={"media":open(heatmap_file_name,'rb')})
+    req = requests.post(BASE_URL+'api/bc0f5afc-9846-4eb8-853a-0ed9716fcf34',data=data,files={"media":open(heatmap_file_name,'rb')})
     print(req.json())
     
 def callbacking(event,x,y,flags,param):

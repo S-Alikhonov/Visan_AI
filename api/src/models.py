@@ -20,7 +20,7 @@ class User(db.Model,UserMixin):
     
 class Insights(db.Model):
     id = db.Column(db.Integer,primary_key=True)
-    time_interval = db.Column(db.DateTime,nullable=False,default=datetime.now())
+    time_interval = db.Column(db.DateTime,nullable=False,default=datetime.now)
     heatmap = db.Column(db.String(255),nullable=False)
     people_count = db.Column(db.Integer,nullable=False)
     author_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
