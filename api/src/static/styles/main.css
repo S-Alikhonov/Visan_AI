@@ -109,6 +109,12 @@ body {
     padding: 50px;
 
 }
+.heat-image {
+    border-radius: 25px;
+border: solid rgba(128, 128, 128, 0.349) 1px;
+    box-shadow: rgba(26, 24, 17, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px !important;
+
+}
 
 /* button scroll back */
 #btn-back-to-top {
