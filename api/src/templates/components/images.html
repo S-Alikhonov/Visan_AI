@@ -4,7 +4,7 @@
         {%for image in images%}
         
             <div class="col-12 col-md-6 d-flex flex-column align-items-center pb-5">
-                <p>{{image[1]}}</p>
+                <p><i class="fas fa-clock"></i> {{image[1]}}</p>
                 <img src="{{url_for('static',filename='uploads/'+image[0])}}" class="heatmap" alt="">
             </div>
         {%endfor%}

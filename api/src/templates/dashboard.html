@@ -55,8 +55,13 @@ type="button"
 </div>
 
 <div id="second-section">
-  <div class="row heat-image m-5 p-2">
-    {{heatmap_images(images)}}
+  <div class="heat-image m-5 p-2">
+      <h3 class="text-center">
+          Heatmap
+      </h3>
+      <div class="row">
+        {{heatmap_images(images)}}
+      </div>
   </div>
 </div>
 {%else%}

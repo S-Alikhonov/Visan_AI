@@ -82,10 +82,10 @@ def callbacking(event,x,y,flags,param):
 def draw(img,x1,y1,x2,y2,people_count,id,colors):
     r=int(0.1*(x2-x1))
     d=2*r
-    thickness=2
+    thickness=3
     color = colors[id,:].tolist()
     # cv2.rectangle(img,(x1,y1),(x2,y2),color,1)
-    cv2.putText(img,str(id),(x1,y1),cv2.FONT_HERSHEY_SIMPLEX,1,color,1)
+    cv2.putText(img,str(id),(x1,y1),cv2.FONT_HERSHEY_SIMPLEX,1,color,3)
     cv2.line(img, (x1 + r, y1), (x1 + r + d, y1), color, thickness)
     cv2.line(img, (x1, y1 + r), (x1, y1 + r + d), color, thickness)
     cv2.ellipse(img, (x1 + r, y1 + r), (r, r), 180, 0, 90, color, thickness)
@@ -112,6 +112,7 @@ def run_tracker(video_path='src/test.mp4'):
     detector = ObjectDetector()
     tracker = DeepSort()
     background_subtractor = cv2.bgsegm.createBackgroundSubtractorMOG()
+    
     
     global image
     global roi
@@ -148,6 +149,12 @@ def run_tracker(video_path='src/test.mp4'):
     
     #actual tracking loop
     cap = cv2.VideoCapture(video_path)
+    frame_width = int(cap.get(3))
+    frame_height = int(cap.get(4))
+    size = (frame_width, frame_height)
+    result = cv2.VideoWriter('filename.avi', 
+                         cv2.VideoWriter_fourcc(*'MJPG'),
+                         10, size)
     if not cap.isOpened():
         print('there is a error openning the video file')
     else:
@@ -177,6 +184,7 @@ def run_tracker(video_path='src/test.mp4'):
                     frame = draw_roi(roi,(135,0,255),frame)
                 background_subtractor,accum_image,frame_2_send = heatmap(background_subtractor,raw_frame,frame,accum_image)
                 cv2.imshow('video',frame)
+                result.write(frame)
                 # if time_to_send.hour == datetime.now().hour:
                 #     api_sender(frame_2_send,people_count)
                 #     time_to_send += timedelta(hours=1)
@@ -190,6 +198,7 @@ def run_tracker(video_path='src/test.mp4'):
         background_subtractor,accum_image,first = heatmap(background_subtractor,raw_frame,first,accum_image)
         api_sender(first,people_count)
         cap.release()
+        result.release()
         cv2.destroyAllWindows()
         cv2.waitKey(1)
         
