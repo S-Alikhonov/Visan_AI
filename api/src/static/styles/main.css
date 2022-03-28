@@ -120,6 +120,9 @@ border: solid rgba(128, 128, 128, 0.349) 1px;
 .heatmap {
     border-radius: 25px;
 }
+.logo-form {
+    width: 70px;
+}
 
 /* button scroll back */
 #btn-back-to-top {

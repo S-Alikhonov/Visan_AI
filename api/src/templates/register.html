@@ -5,9 +5,13 @@
     <div class="my auth-form">
         <form method='POST' action="">
             {{form.hidden_tag()}}
-            <div class="label mb-4 text-center title-form "><label>
-                Register
-            </label></div>
+            <div class="label mb-4 text-center title-form ">
+                <img src="{{url_for('static',filename='assets/icon.png')}}" alt="" class="logo-form">
+                <label>
+                    Register
+                </label>
+                
+        </div>
             <fieldset>
                 <div class="form-group d-flex flex-column mb-2">
                     {{form.username.label(class='form-labels')}}
