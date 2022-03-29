@@ -20,10 +20,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Days+One&family=Montserrat:wght@300;400;900&display=swap" rel="stylesheet">
     <link rel="icon" href="{{url_for('static',filename='assets/icon.png')}}">
   </head>
+
+
   <body>
+    {%from 'components/footer.html' import footer%}
     {%if current_user.is_authenticated%}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="{{url_for('index')}}">
             <img src="{{url_for('static',filename='assets/icon.png')}}" alt="" width="40px">
@@ -64,9 +67,8 @@
       
       <title>{%if title%}{{title}}{%else%}Retail Heatmap{%endif%}</title>
     {%block content%}
-
-
     {%endblock%}
+    {{footer()}}
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

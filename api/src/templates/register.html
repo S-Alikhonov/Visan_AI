@@ -1,15 +1,13 @@
 {%extends 'base.html'%}
 
 {% block content %}
+<div class="loggging d-flex align-items-center justify-content-center">
 <div class="d-flex justify-content-center align-items-center authenticate ">
     <div class="my auth-form">
         <form method='POST' action="">
             {{form.hidden_tag()}}
             <div class="label mb-4 text-center title-form ">
                 <img src="{{url_for('static',filename='assets/icon.png')}}" alt="" class="logo-form">
-                <label>
-                    Register
-                </label>
                 
         </div>
             <fieldset>
@@ -84,6 +82,7 @@
         </div>
     </div>
     
+</div>
 </div>
 
 {% endblock %}

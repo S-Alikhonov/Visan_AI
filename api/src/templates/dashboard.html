@@ -3,6 +3,7 @@
 {%from 'components/carousel.html' import carousel%}
 {%from 'components/images.html' import heatmap_images%}
 <!-- Back to top button -->
+<div class="page">
 <button
 type="button"
         class="btn btn-danger btn-floating btn-lg"
@@ -43,11 +44,11 @@ type="button"
 </div>
 <div id="first-section">
   <div class="d-flex-column align-items-center p-5">
-    <h3 class="text-center">Hourly visitor count</h3>
     <div class="row graph">
         <div class="col-12">
             <div class="graph-chart">
-                <div id="chart1"></div>
+              <h3 class="text-center mt-5">Hourly visitor count</h3>
+                <div id="chart1" class="ms-4"></div>
             </div>
         </div>
     </div>
@@ -55,7 +56,7 @@ type="button"
 </div>
 
 <div id="second-section">
-  <div class="heat-image m-5 p-2">
+  <div class="heat-image m-5 p-2 pt-5">
       <h3 class="text-center">
           Heatmap
       </h3>
@@ -69,9 +70,7 @@ type="button"
   <p class="text-center">There is no info for selected date</p>
   </div>
 {%endif%}
-
-
-
+</div>
 
 <script>
     $(document).ready(function(){
