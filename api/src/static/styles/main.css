@@ -151,7 +151,8 @@ border: solid rgba(128, 128, 128, 0.349) 1px;
 /* 
   account */
 .api-secret-key {
-    max-width: 50vw !important;
+    width: 40vw;
+    max-width:400px;
 }
 
 

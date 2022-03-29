@@ -1,15 +1,14 @@
 {%extends 'base.html'%}
 {%block content%}
 <div class="page">
-    
-    <div class="d-flex jusitfy-content-between">
+    <div class="d-flex justify-content-center px-5 pt-5">
+
         <div class="api-secret-key">
-            <input class="form-control me-5" type="text"  value="{{current_user.secret_key}}" aria-label="Disabled input example" disabled readonly>
+            <input class="form-control mx-5 flex-fill" id="api-key" type="text"  value="{{current_user.secret_key}}" aria-label="Disabled input example" disabled readonly>
         </div>
         <div class="panel">
             <form method="POST">
-              <button class="btn btn-primary
-               pull-right ms-5">Recreate</button>
+              <button class="btn btn-primary pull-right ms-5">Regenerate</button>
             </form>
         </div>
     </div>
