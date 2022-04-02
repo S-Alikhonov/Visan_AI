@@ -104,7 +104,7 @@ def draw(img,x1,y1,x2,y2,people_count,id,colors):
     cv2.line(img, (x2 - r, y2), (x2 - r - d, y2), color, thickness)
     cv2.line(img, (x2, y2 - r), (x2, y2 - r - d), color, thickness)
     cv2.ellipse(img, (x2 - r, y2 - r), (r, r), 0, 0, 90, color, thickness)
-    cv2.putText(img,f'people count:{len(people_count)}',(30,45),cv2.FONT_HERSHEY_COMPLEX,2,(255,255,0),3)
+    cv2.putText(img,f'people count:{len(people_count)}',(30,45),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,0),2)
     return img
 
 def run_tracker(video_path='src/test.mp4'):
