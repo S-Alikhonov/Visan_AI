@@ -68,7 +68,7 @@ def api_sender(heatmap,count):
         'heatmap':heatmap_file_name,
         'count': len(count)
     }
-    req = requests.post(BASE_URL+'api/bc0f5afc-9846-4eb8-853a-0ed9716fcf34',data=data,files={"media":open(heatmap_file_name,'rb')})
+    req = requests.post(BASE_URL+'api/9b196f09-c9f4-4d79-bc84-d164d5b8f37f',data=data,files={"media":open(heatmap_file_name,'rb')})
     print(req.json())
     
 def callbacking(event,x,y,flags,param):
