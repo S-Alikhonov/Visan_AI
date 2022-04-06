@@ -83,7 +83,7 @@ def draw(img,x1,y1,x2,y2,people_count,id,colors):
     r=int(0.1*(x2-x1))
     d=2*r
     thickness=3
-    color = colors[id,:].tolist()
+    color = colors[id%100,:].tolist()
     # cv2.rectangle(img,(x1,y1),(x2,y2),color,1)
     cv2.putText(img,str(id),(x1,y1),cv2.FONT_HERSHEY_SIMPLEX,1,color,3)
     cv2.line(img, (x1 + r, y1), (x1 + r + d, y1), color, thickness)
@@ -152,7 +152,7 @@ def run_tracker(video_path='src/test.mp4'):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     size = (frame_width, frame_height)
-    result = cv2.VideoWriter('filename.avi', 
+    result = cv2.VideoWriter('generatedvid.avi', 
                          cv2.VideoWriter_fourcc(*'MJPG'),
                          10, size)
     if not cap.isOpened():
